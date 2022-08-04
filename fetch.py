@@ -21,6 +21,8 @@ def run():
         return run()
     
     print(f"\nWinner information: \n{'-'*20} \nIndex: {a} \nWinner: {data['winners'][a-1]} \nTimestamp: {data['datetime'][a-1]} \n{'-'*20}")
+
+# Running the function
 try:
     if n==0:
         print("No winners were found. Stopping.")

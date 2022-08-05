@@ -3,7 +3,7 @@ A CLI giveaway application/add-on written in Python that announces the winner on
 
 ### How does it work?
 
-There is an `.enter.json` file, where all the entrant data is stored at, and `main.py` reads data from it. Once a certain amount of entrants reaches a given number (in this case 10), a random one gets picked as a winner, the winner gets logged into `.winners.json` file (along with the date and time of winning) and entrant list gets erased for the next giveaway all immediately. You can also use `fetch.py` to view the winner history.
+There is an `enter.json` file, where all the entrant data is stored at, and `main.py` reads data from it. Once a certain amount of entrants reaches a given number (in this case 10), a random one gets picked as a winner, the winner gets logged into `winners.json` file (along with the date and time of winning) and entrant list gets erased for the next giveaway all immediately. You can also use `fetch.py` to view the winner history.
 
 ### What is the purpose?
 

@@ -7,14 +7,18 @@ import datetime
 # (requires a separate program to fetch entrants; can be changed to a larger/lower amount of entrants by editing ln16:col38)
 def run():
     
-    try:
-        enterfile = open('enter.json')
-        enterdata = json.load(enterfile)
-    except FileNotFoundError:
-        enterwrite = str('{"entrants": []}')
-        with open('enter.json', "w") as enterout:
-            enterout.write(enterwrite)
-        return run()
+    def enterjson():
+        try:
+            enterfile = open('enter.json')
+            global enterdata
+            enterdata = json.load(enterfile)
+        except FileNotFoundError:
+            enterwrite = str('{"entrants": []}')
+            with open('enter.json', "w") as enterout:
+                enterout.write(enterwrite)
+            return run()
+
+    enterjson()
 
     try:
         winfile = open('winners.json')
@@ -28,15 +32,8 @@ def run():
     # Waits until json list gets 10 variables
     while len(enterdata["entrants"])<10:
         time.sleep(0.1)
-        try:
-            enterfile = open('enter.json')
-            enterdata = json.load(enterfile)
-        except FileNotFoundError:
-            enterwrite = str('{"entrants": []}')
-            with open('enter.json', "w") as enterout:
-                enterout.write(enterwrite)
-            return run()
-
+        enterjson()
+        
     # Picks a random entrant from the enter.json file and prints it
     randwin=random.randint(0,len(enterdata["entrants"])-1)
     winner=enterdata["entrants"][randwin]

@@ -1,7 +1,11 @@
 import json
 
-# Imports winners.json 
-f = open('.winners.json')
+try:
+    f = open('winners.json')
+except FileNotFoundError:
+    print("File winners.json was not found. Exiting.")
+    exit()
+    
 data = json.load(f)
 n = len(data['winners'])
 
@@ -22,7 +26,6 @@ def run():
     
     print(f"\nWinner information: \n{'-'*20} \nIndex: {a} \nWinner: {data['winners'][a-1]} \nTimestamp: {data['datetime'][a-1]} \n{'-'*20}")
 
-# Running the function
 try:
     if n==0:
         print("No winners were found. Stopping.")
@@ -30,3 +33,5 @@ try:
         run()
 except KeyboardInterrupt:
     print("\nAborted.")
+except ValueError:
+    print()

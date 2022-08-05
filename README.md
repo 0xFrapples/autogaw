@@ -23,10 +23,6 @@ To run the application, you have to follow the steps below:
 - `python main.py` to execute automated giveaways
 - `python fetch.py` to fetch winner's information
 
-### Notes
 
-Files `.enter.json` and `.winners.json` are not meant to be modified and it's not recommended editing them unless you know what you are doing.
-
-
-###### Feel free to modify/redistribute the code for any use. Made with <3 by Frapples
+##### Feel free to modify/redistribute the code for any use. Made with <3 by Frapples
 
